@@ -1,9 +1,10 @@
 '''
 Created on Jan 6, 2015
 This is a reworking of the conflict code to treat include the following data:
--New PRIO results (in PRIO_Added_12-2014 folder)
+-New PRIO sensitivity and vulnerbility (in PRIO_Added_12-2014 folder)
+-Pulling in gridded PRIO Population and infant mortality Data
 -coded conflict types
-
+-Most everything has been switched over to R
 
 @author: msisk1
 '''
