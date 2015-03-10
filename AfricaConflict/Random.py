@@ -15,4 +15,32 @@ def creatingDoFileFromVariableList():
         print new_line
         out_writer.write(new_line + "\n")
     out_writer.close()
-creatingDoFileFromVariableList()
+
+
+def sortingAndCollatingLocationFile():
+    os.chdir("E:\\GISWork_2\\Conflict\\Protest\\")
+    csv_dic = csv.DictReader(open("Locations_with_CCodes.csv", 'rb'), delimiter=',', quotechar='"')
+    out_writer = open("just_protests_and_Dates2.csv", "w")
+    out_header = "{0},{1},{2},{3},{4},{5}".format("gridcell","year","month","ccode","id","gym")
+    out_writer.write(out_header + "\n")
+#    for each in csv_dic.fieldnames:
+#        print each
+    for each_line in csv_dic:
+        each_codes = each_line["GridIDs"]
+        if each_codes != "NA":
+            all_gridcell = each_codes.split(" ")
+            for each_gridcell in all_gridcell:
+                gym = "{0}-{1}{2}".format( each_gridcell, each_line["startyear"],each_line["startmonth"].zfill(2))
+                new_line =  "{0},{1},{2},{3},{4},{5}".format( each_gridcell, each_line["startyear"],each_line["startmonth"],each_line["ccode"],each_line["id"],gym)
+                #print new_line
+                out_writer.write(new_line + "\n")
+    out_writer.close()
+    
+    
+    print "finished raw file"
+
+
+#creatingDoFileFromVariableList()
+
+
+sortingAndCollatingLocationFile()

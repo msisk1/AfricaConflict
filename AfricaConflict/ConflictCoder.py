@@ -154,8 +154,11 @@ def buildConflictFile():
 
 start = timeit.default_timer() #This is just to time how long the program run.  Can be safely Omitted
 
-buildConflictFile()
+#buildConflictFile()
 
+q = buildYearMonthList()
+for a in q:
+    print a
 
 #Last bit just to create an time output
 stop = timeit.default_timer()
